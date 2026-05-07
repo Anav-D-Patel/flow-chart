@@ -890,69 +890,125 @@
     <!-- ===== SECTION: QUIZ EVENTS ===== -->
     <div class="section-header"><span>POP QUIZ EVENTS (triggered from MYSTERY)</span></div>
 
-    <div class="two-col" style="width:100%;">
+    <!-- Quiz outcomes row -->
+    <div class="two-col" style="width:100%;margin-bottom:20px;">
       <!-- SOLO QUIZ -->
       <div class="panel">
-        <div class="panel-title">Solo Quiz</div>
-        <div class="node node-phase" style="width:100%;text-align:center;margin-bottom:10px;">
-          <div class="node-title">Electronegativity Question</div>
-          <div class="node-sub">Current player answers alone</div>
-        </div>
-        <div class="two-col" style="gap:8px;">
+        <div class="panel-title">Solo Quiz — Current player answers alone</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
           <div class="col" style="align-items:center;">
-            <div style="color:#2ed573;font-size:10px;font-family:'Space Mono',monospace;margin-bottom:4px;">CORRECT</div>
+            <div style="color:#2ed573;font-size:10px;font-family:'Space Mono',monospace;margin-bottom:4px;">✓ CORRECT</div>
             <div class="node node-outcome-good" style="width:100%;text-align:center;font-size:11px;">
-              <div class="node-title">+500 Au +1.0 ΔEN</div>
-              <div class="node-sub">Choose a player to give +200 Au grant</div>
+              <div class="node-title">+500 Au · +1.0 ΔEN</div>
+              <div class="node-sub">Then choose any opponent to receive a +200 Au grant</div>
             </div>
           </div>
           <div class="col" style="align-items:center;">
-            <div style="color:var(--error);font-size:10px;font-family:'Space Mono',monospace;margin-bottom:4px;">INCORRECT</div>
+            <div style="color:var(--error);font-size:10px;font-family:'Space Mono',monospace;margin-bottom:4px;">✗ INCORRECT</div>
             <div class="node node-outcome-bad" style="width:100%;text-align:center;font-size:11px;">
-              <div class="node-title">−100 Au · Skip Next</div>
-              <div class="node-sub">Next turn automatically skipped</div>
+              <div class="node-title">−100 Au · Skip Next Turn</div>
+              <div class="node-sub">Turn is automatically skipped next round</div>
             </div>
           </div>
         </div>
       </div>
-
       <!-- H2H QUIZ -->
       <div class="panel">
-        <div class="panel-title">Head-to-Head Quiz</div>
-        <div class="node node-phase" style="width:100%;text-align:center;margin-bottom:10px;">
-          <div class="node-title">Both players answer separately</div>
-          <div class="node-sub">Current player + random opponent · Different questions</div>
-        </div>
+        <div class="panel-title">Head-to-Head — You + a random opponent, each get a different question</div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
           <div class="col" style="align-items:center;">
-            <div style="color:#2ed573;font-size:9px;font-family:'Space Mono',monospace;margin-bottom:3px;">BOTH CORRECT</div>
+            <div style="color:#2ed573;font-size:9px;font-family:'Space Mono',monospace;margin-bottom:3px;">BOTH CORRECT → TIE</div>
             <div class="node node-outcome-good" style="width:100%;text-align:center;font-size:10px;">
-              <div class="node-title">TIE</div>
-              <div class="node-sub">Both: +200 Au +1.0 ΔEN</div>
+              <div class="node-title">Both: +200 Au +1.0 ΔEN</div>
             </div>
           </div>
           <div class="col" style="align-items:center;">
-            <div style="color:var(--warning);font-size:9px;font-family:'Space Mono',monospace;margin-bottom:3px;">YOU WIN</div>
+            <div style="color:var(--warning);font-size:9px;font-family:'Space Mono',monospace;margin-bottom:3px;">YOU CORRECT ONLY</div>
             <div class="node node-outcome-good" style="width:100%;text-align:center;font-size:10px;">
-              <div class="node-title">You correct only</div>
-              <div class="node-sub">+400 Au +2.0 ΔEN</div>
+              <div class="node-title">You: +400 Au +2.0 ΔEN</div>
             </div>
           </div>
           <div class="col" style="align-items:center;">
-            <div style="color:var(--error);font-size:9px;font-family:'Space Mono',monospace;margin-bottom:3px;">YOU LOSE</div>
+            <div style="color:var(--error);font-size:9px;font-family:'Space Mono',monospace;margin-bottom:3px;">OPPONENT CORRECT ONLY</div>
             <div class="node node-outcome-bad" style="width:100%;text-align:center;font-size:10px;">
-              <div class="node-title">Opponent correct</div>
-              <div class="node-sub">They get +400 Au +2.0 ΔEN</div>
+              <div class="node-title">Opponent: +400 Au +2.0 ΔEN</div>
             </div>
           </div>
           <div class="col" style="align-items:center;">
             <div style="color:var(--error);font-size:9px;font-family:'Space Mono',monospace;margin-bottom:3px;">BOTH WRONG</div>
             <div class="node node-outcome-neutral" style="width:100%;text-align:center;font-size:10px;">
-              <div class="node-title">Mutual Failure</div>
-              <div class="node-sub">No rewards for anyone</div>
+              <div class="node-title">Mutual Failure — No rewards</div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- All 5 quiz questions -->
+    <div class="panel" style="width:100%;">
+      <div class="panel-title">All 5 Possible Quiz Questions (drawn randomly each time)</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+
+        <!-- Q1 -->
+        <div style="background:#09090e;border:1px solid var(--border);border-radius:7px;padding:12px;">
+          <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:6px;">Question 1</div>
+          <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.4;">Which element has the highest electronegativity value on the periodic table?</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;font-family:'Space Mono',monospace;font-size:10px;">
+            <div style="padding:4px 7px;background:#0e0e14;border-radius:4px;border:1px solid var(--border);color:var(--muted);">A) Oxygen (O)</div>
+            <div style="padding:4px 7px;background:#0a1a10;border-radius:4px;border:1px solid #2ed573;color:#2ed573;font-weight:700;">B) Fluorine (F) ✓</div>
+            <div style="padding:4px 7px;background:#0e0e14;border-radius:4px;border:1px solid var(--border);color:var(--muted);">C) Chlorine (Cl)</div>
+            <div style="padding:4px 7px;background:#0e0e14;border-radius:4px;border:1px solid var(--border);color:var(--muted);">D) Nitrogen (N)</div>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div style="background:#09090e;border:1px solid var(--border);border-radius:7px;padding:12px;">
+          <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:6px;">Question 2</div>
+          <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.4;">What bond classification typically corresponds to a ΔEN of 0.2?</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;font-family:'Space Mono',monospace;font-size:10px;">
+            <div style="padding:4px 7px;background:#0e0e14;border-radius:4px;border:1px solid var(--border);color:var(--muted);">A) Ionic</div>
+            <div style="padding:4px 7px;background:#0e0e14;border-radius:4px;border:1px solid var(--border);color:var(--muted);">B) Polar Covalent</div>
+            <div style="padding:4px 7px;background:#0a1a10;border-radius:4px;border:1px solid #2ed573;color:#2ed573;font-weight:700;">C) Non-Polar Covalent ✓</div>
+            <div style="padding:4px 7px;background:#0e0e14;border-radius:4px;border:1px solid var(--border);color:var(--muted);">D) Metallic</div>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div style="background:#09090e;border:1px solid var(--border);border-radius:7px;padding:12px;">
+          <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:6px;">Question 3</div>
+          <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.4;">What is the general trend of electronegativity as you move left to right across a period?</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;font-family:'Space Mono',monospace;font-size:10px;">
+            <div style="padding:4px 7px;background:#0a1a10;border-radius:4px;border:1px solid #2ed573;color:#2ed573;font-weight:700;">A) It increases ✓</div>
+            <div style="padding:4px 7px;background:#0e0e14;border-radius:4px;border:1px solid var(--border);color:var(--muted);">B) It decreases</div>
+            <div style="padding:4px 7px;background:#0e0e14;border-radius:4px;border:1px solid var(--border);color:var(--muted);">C) It stays constant</div>
+            <div style="padding:4px 7px;background:#0e0e14;border-radius:4px;border:1px solid var(--border);color:var(--muted);">D) It fluctuates randomly</div>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div style="background:#09090e;border:1px solid var(--border);border-radius:7px;padding:12px;">
+          <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:6px;">Question 4</div>
+          <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.4;">Which of these elements is considered the LEAST electronegative?</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;font-family:'Space Mono',monospace;font-size:10px;">
+            <div style="padding:4px 7px;background:#0e0e14;border-radius:4px;border:1px solid var(--border);color:var(--muted);">A) Sodium (Na)</div>
+            <div style="padding:4px 7px;background:#0e0e14;border-radius:4px;border:1px solid var(--border);color:var(--muted);">B) Fluorine (F)</div>
+            <div style="padding:4px 7px;background:#0a1a10;border-radius:4px;border:1px solid #2ed573;color:#2ed573;font-weight:700;">C) Francium (Fr) ✓</div>
+            <div style="padding:4px 7px;background:#0e0e14;border-radius:4px;border:1px solid var(--border);color:var(--muted);">D) Carbon (C)</div>
+          </div>
+        </div>
+
+        <!-- Q5 — full width -->
+        <div style="background:#09090e;border:1px solid var(--border);border-radius:7px;padding:12px;grid-column:1/-1;">
+          <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:6px;">Question 5</div>
+          <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.4;">If the electronegativity difference (ΔEN) between two atoms is 2.1, the bond is considered:</div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;font-family:'Space Mono',monospace;font-size:10px;">
+            <div style="padding:4px 7px;background:#0e0e14;border-radius:4px;border:1px solid var(--border);color:var(--muted);">A) Non-Polar</div>
+            <div style="padding:4px 7px;background:#0e0e14;border-radius:4px;border:1px solid var(--border);color:var(--muted);">B) Polar Covalent</div>
+            <div style="padding:4px 7px;background:#0a1a10;border-radius:4px;border:1px solid #2ed573;color:#2ed573;font-weight:700;">C) Ionic ✓</div>
+            <div style="padding:4px 7px;background:#0e0e14;border-radius:4px;border:1px solid var(--border);color:var(--muted);">D) Hydrogen Bond</div>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -1030,39 +1086,139 @@
   </div><!-- end flowchart -->
 
   <!-- ===== BOARD ELEMENTS REFERENCE ===== -->
-  <div class="section-header" style="margin-top:40px;"><span>KEY BOARD ELEMENTS REFERENCE</span></div>
+  <div class="section-header" style="margin-top:40px;"><span>ALL BOARD ELEMENTS — COMPLETE REFERENCE</span></div>
 
-  <div class="two-col" style="width:100%;">
-    <div class="panel">
-      <div class="panel-title">Outer Ring Elements (Always on Board)</div>
-      <table class="board-table">
-        <tr><th>Tile</th><th>Symbol</th><th>EN</th><th>Cost</th><th>Base Fine</th></tr>
-        <tr><td>GO</td><td>—</td><td>—</td><td>—</td><td>+200 Au on pass</td></tr>
-        <tr><td>Francium</td><td>Fr</td><td>0.70</td><td>60 Au</td><td>35 Au</td></tr>
-        <tr><td>Caesium</td><td>Cs</td><td>0.79</td><td>60 Au</td><td>39 Au</td></tr>
-        <tr><td>MYSTERY</td><td>???</td><td>—</td><td>—</td><td>Random event</td></tr>
-        <tr><td>Potassium</td><td>K</td><td>0.82</td><td>100 Au</td><td>41 Au</td></tr>
-        <tr><td>Sodium</td><td>Na</td><td>0.93</td><td>120 Au</td><td>46 Au</td></tr>
-        <tr><td>Fluorine</td><td>F</td><td>3.98</td><td>400 Au</td><td>199 Au</td></tr>
-        <tr><td>Oxygen</td><td>O</td><td>3.44</td><td>380 Au</td><td>172 Au</td></tr>
-        <tr><td>Chlorine</td><td>Cl</td><td>3.16</td><td>360 Au</td><td>158 Au</td></tr>
-        <tr><td>Nitrogen</td><td>N</td><td>3.04</td><td>340 Au</td><td>152 Au</td></tr>
-      </table>
-    </div>
-    <div class="panel">
-      <div class="panel-title">Examples of Expansion Elements (Added via MYSTERY, Not all listed)</div>
-      <table class="board-table">
-        <tr><th>Symbol</th><th>EN</th><th>Cost</th><th>Notes</th></tr>
-        <tr><td>Zn</td><td>1.65</td><td>200 Au</td><td>Transition metal</td></tr>
-        <tr><td>Cu</td><td>1.90</td><td>250 Au</td><td>Transition metal</td></tr>
-        <tr><td>Ag</td><td>1.93</td><td>300 Au</td><td>Transition metal</td></tr>
-        <tr><td>Au</td><td>2.54</td><td>400 Au</td><td>Gold itself!</td></tr>
-        <tr><td>Pt</td><td>2.28</td><td>350 Au</td><td>Transition metal</td></tr>
-        <tr><td>Pu</td><td>1.28</td><td>500 Au</td><td>Most expensive!</td></tr>
-        <tr><td>U</td><td>1.38</td><td>400 Au</td><td>Actinide</td></tr>
-        <tr><td colspan="4" style="color:#555;font-size:10px;padding-top:8px;">36 total expansion elements · added 3 at a time via Mystery</td></tr>
-      </table>
-    </div>
+  <!-- BASE RING -->
+  <div class="panel" style="width:100%;margin-bottom:16px;">
+    <div class="panel-title">Outer Ring — 26 Elements Always on the Board (+ 3 MYSTERY tiles + GO)</div>
+    <table class="board-table">
+      <tr><th>Symbol</th><th>Name</th><th>EN</th><th>Cost</th><th>Base Fine (EN×50)</th>
+          <th style="border-left:1px solid var(--border);padding-left:12px;">Symbol</th><th>Name</th><th>EN</th><th>Cost</th><th>Base Fine</th></tr>
+      <tr>
+        <td>GO</td><td>Go</td><td>—</td><td>—</td><td style="color:var(--success);">+200 Au on pass</td>
+        <td style="border-left:1px solid var(--border);padding-left:12px;">B</td><td>Boron</td><td>2.04</td><td>245</td><td>102</td>
+      </tr>
+      <tr>
+        <td>Fr</td><td>Francium</td><td>0.70</td><td>60</td><td>35</td>
+        <td style="border-left:1px solid var(--border);padding-left:12px;">P</td><td>Phosphorus</td><td>2.19</td><td>250</td><td>109</td>
+      </tr>
+      <tr>
+        <td>Cs</td><td>Caesium</td><td>0.79</td><td>60</td><td>39</td>
+        <td style="border-left:1px solid var(--border);padding-left:12px;">H</td><td>Hydrogen</td><td>2.20</td><td>260</td><td>110</td>
+      </tr>
+      <tr>
+        <td>K</td><td>Potassium</td><td>0.82</td><td>100</td><td>41</td>
+        <td style="border-left:1px solid var(--border);padding-left:12px;">C</td><td>Carbon</td><td>2.55</td><td>280</td><td>127</td>
+      </tr>
+      <tr>
+        <td>Na</td><td>Sodium</td><td>0.93</td><td>120</td><td>46</td>
+        <td style="border-left:1px solid var(--border);padding-left:12px;">S</td><td>Sulfur</td><td>2.58</td><td>290</td><td>129</td>
+      </tr>
+      <tr>
+        <td>Li</td><td>Lithium</td><td>0.98</td><td>140</td><td>49</td>
+        <td style="border-left:1px solid var(--border);padding-left:12px;">I</td><td>Iodine</td><td>2.66</td><td>300</td><td>133</td>
+      </tr>
+      <tr>
+        <td>Ca</td><td>Calcium</td><td>1.00</td><td>160</td><td>50</td>
+        <td style="border-left:1px solid var(--border);padding-left:12px;">Br</td><td>Bromine</td><td>2.96</td><td>320</td><td>148</td>
+      </tr>
+      <tr>
+        <td>Mg</td><td>Magnesium</td><td>1.31</td><td>180</td><td>65</td>
+        <td style="border-left:1px solid var(--border);padding-left:12px;">N</td><td>Nitrogen</td><td>3.04</td><td>340</td><td>152</td>
+      </tr>
+      <tr>
+        <td>Be</td><td>Beryllium</td><td>1.57</td><td>150</td><td>78</td>
+        <td style="border-left:1px solid var(--border);padding-left:12px;">Cl</td><td>Chlorine</td><td>3.16</td><td>360</td><td>158</td>
+      </tr>
+      <tr>
+        <td>Al</td><td>Aluminium</td><td>1.61</td><td>200</td><td>80</td>
+        <td style="border-left:1px solid var(--border);padding-left:12px;">O</td><td>Oxygen</td><td>3.44</td><td>380</td><td>172</td>
+      </tr>
+      <tr>
+        <td>Si</td><td>Silicon</td><td>1.90</td><td>240</td><td>95</td>
+        <td style="border-left:1px solid var(--border);padding-left:12px;">F</td><td>Fluorine</td><td>3.98</td><td>400</td><td>199</td>
+      </tr>
+      <tr>
+        <td>Te</td><td>Tellurium</td><td>2.10</td><td>420</td><td>105</td>
+        <td style="border-left:1px solid var(--border);padding-left:12px;">Se</td><td>Selenium</td><td>2.55</td><td>410</td><td>127</td>
+      </tr>
+      <tr>
+        <td>As</td><td>Arsenic</td><td>2.18</td><td>330</td><td>109</td>
+        <td style="border-left:1px solid var(--border);padding-left:12px;">MYSTERY ×3</td><td colspan="3">pos 3, 31, 59</td><td style="color:var(--warning);">Random event</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- EXPANSION RING -->
+  <div class="panel" style="width:100%;">
+    <div class="panel-title">Inner Ring — 36 Expansion Elements (added 3 at a time via MYSTERY: LAB EXPANSION)</div>
+    <table class="board-table">
+      <tr>
+        <th>Sym</th><th>EN</th><th>Cost</th>
+        <th style="border-left:1px solid var(--border);padding-left:10px;">Sym</th><th>EN</th><th>Cost</th>
+        <th style="border-left:1px solid var(--border);padding-left:10px;">Sym</th><th>EN</th><th>Cost</th>
+        <th style="border-left:1px solid var(--border);padding-left:10px;">Sym</th><th>EN</th><th>Cost</th>
+      </tr>
+      <tr>
+        <td>Zn</td><td>1.65</td><td>200</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Tl</td><td>1.62</td><td>200</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Am</td><td>1.13</td><td>300</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Es</td><td>1.30</td><td>300</td>
+      </tr>
+      <tr>
+        <td>Cu</td><td>1.90</td><td>250</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Pb</td><td>2.33</td><td>300</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Cm</td><td>1.28</td><td>320</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Fm</td><td>1.30</td><td>300</td>
+      </tr>
+      <tr>
+        <td>Ag</td><td>1.93</td><td>300</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Bi</td><td>2.02</td><td>250</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Bk</td><td>1.30</td><td>300</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Md</td><td>1.30</td><td>300</td>
+      </tr>
+      <tr>
+        <td>Fe</td><td>1.83</td><td>310</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Po</td><td>2.00</td><td>300</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Cf</td><td>1.30</td><td>300</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">No</td><td>1.30</td><td>300</td>
+      </tr>
+      <tr>
+        <td>Ni</td><td>1.91</td><td>320</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">At</td><td>2.20</td><td>350</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">U</td><td>1.38</td><td>400</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Lr</td><td>1.30</td><td>300</td>
+      </tr>
+      <tr>
+        <td>Pt</td><td>2.28</td><td>350</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Rn</td><td>2.20</td><td>400</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Np</td><td>1.36</td><td>350</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Rf</td><td>1.30</td><td>300</td>
+      </tr>
+      <tr>
+        <td>Au</td><td>2.54</td><td>400</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Ra</td><td>0.90</td><td>200</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Pu</td><td>1.28</td><td>500</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Db</td><td>1.30</td><td>300</td>
+      </tr>
+      <tr>
+        <td>Hg</td><td>2.00</td><td>380</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Ac</td><td>1.10</td><td>220</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Sg</td><td>1.30</td><td>300</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Bh</td><td>1.30</td><td>300</td>
+      </tr>
+      <tr>
+        <td colspan="3"></td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Th</td><td>1.30</td><td>240</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Hs</td><td>1.30</td><td>300</td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Mt</td><td>1.30</td><td>300</td>
+      </tr>
+      <tr>
+        <td colspan="3"></td>
+        <td style="border-left:1px solid var(--border);padding-left:10px;">Pa</td><td>1.50</td><td>260</td>
+        <td colspan="5" style="color:#555;font-size:10px;padding-left:10px;">36 total · drawn randomly 3 at a time · board can fully expand if MYSTERY fires enough</td>
+      </tr>
+    </table>
   </div>
 
   <!-- ===== FOOTER ===== -->
